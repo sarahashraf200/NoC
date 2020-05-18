@@ -38,7 +38,7 @@ entity dual_port_mem is
     d_in      : in  std_logic_vector(DATA_WIDTH-1 downto 0);
 
     -- Port B
-    CLKB      : in  std_logic;
+    CLKB ,REA     : in  std_logic;
     ADDRB     : in  std_logic_vector(ADDR_WIDTH-1 downto 0);
     d_out     : out std_logic_vector(DATA_WIDTH-1 downto 0)
   );
@@ -47,9 +47,15 @@ end entity;
 architecture behavior of dual_port_mem is
 
   type t_mem_type is array ((2**ADDR_WIDTH)-1 downto 0) of std_logic_vector(DATA_WIDTH-1 downto 0);
+  
+  
   -- total number of bits that's filled in the memory is the multiplication of the length of memory times width of memory
   -- since 2^address = the depth of the memory block
+  
+  
   signal r_memory : t_mem_type := (others=>(others=>'0')); 
+  
+  
   -- intiallizing the array which has a depth of ((2**ADDR_WIDTH)-1 downto 0) 
   -- and length of the number of data bits in each index, as we said memory bits = length * width
   -- here what the expression others=>(others=>'0')) means: For _most_ Xilinx FPGA famlies, the bitstream initializes all memories
@@ -61,12 +67,10 @@ architecture behavior of dual_port_mem is
 --If instead you wanted to make sure you don't read uninitialized memory
 
 
-  --signal s_clk_a : std_logic := '0';
-
+ 
 begin
 
- -- s_clk_a <= CLKA when WEA = '1' else '0';
-  
+
   -- when write enable is high it will synchronus clock 
   --and data will be written at a specific address at the rising edge of the clk but when write enable is low
   -- it will only read out the data from the address
@@ -83,7 +87,9 @@ begin
   port_b : process(CLKB)
   begin
     if rising_edge(CLKB) then
+	 if REA = '1' then
       d_out <= r_memory(to_integer(unsigned(ADDRB)));
+		end if;
     end if;
   end process;
 
