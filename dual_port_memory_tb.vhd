@@ -43,6 +43,7 @@ ARCHITECTURE behavior OF dual_port_memory_tb IS
     PORT(
          CLKA : IN  std_logic;
          WEA : IN  std_logic;
+			 REA : IN  std_logic;
          ADDRA : IN  std_logic_vector(2 downto 0);
          d_in : IN  std_logic_vector(7 downto 0);
          CLKB : IN  std_logic;
@@ -53,6 +54,7 @@ ARCHITECTURE behavior OF dual_port_memory_tb IS
     
 
    --Inputs
+	signal REA : std_logic := '0';
    signal CLKA : std_logic := '0';
    signal WEA : std_logic := '0';
    signal ADDRA : std_logic_vector(2 downto 0) := (others => '0');
@@ -81,7 +83,8 @@ BEGIN
           d_in => d_in,
           CLKB => CLKB,
           ADDRB => ADDRB,
-          d_out => d_out
+          d_out => d_out,
+			 REA => REA
         );
 		  
 		  
@@ -100,10 +103,9 @@ BEGIN
     CLKA   <= '0';
     WEA <= '0';
 
-    ---------------------------------------------------------------------------
+    
     -- Read memory
-    ---------------------------------------------------------------------------
-
+    REA <= '1';
     read_loop : for i in 0 to 7 loop
       CLKB   <= '0';
       ADDRB  <= std_logic_vector(to_unsigned(i, 3));
@@ -114,6 +116,8 @@ BEGIN
 		report "Incorrect value read back from memory" 
 		severity ERROR;
     end loop;
+	 CLKB   <= '0';
+    REA <= '0';
 
     wait;
   end process dual_memo;
