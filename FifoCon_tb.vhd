@@ -113,8 +113,8 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 50 ns.
-      wait for 50 ns;	
+      
+	wait for 50 ns;	
 		
 		reset<='1';
       wait for 10 ns;	
