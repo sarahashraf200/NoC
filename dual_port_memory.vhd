@@ -28,7 +28,7 @@ use IEEE.std_logic_unsigned.all;
 entity dual_port_mem is
   generic(
     DATA_WIDTH  : natural := 8;  -- each word is 8 bits
-    ADDR_WIDTH  : natural := 3   -- the address of each port is 3 bits
+    ADDR_WIDTH  : natural := 4   -- the address of each port is 3 bits
   );
   port (
     -- Port A

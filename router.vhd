@@ -76,7 +76,7 @@ signal counter : integer := 1;
 		PORT( 
 			d_in: IN std_logic_vector(7 downto 0);
 			sel: IN std_logic_vector(1 downto 0);
-			en: std_logic ; 
+			en: in std_logic ; 
 			d_out1,d_out2,d_out3,d_out4: OUT std_logic_vector(7 downto 0)
 		);
 	END component ; 
@@ -165,7 +165,7 @@ end component;
 -------------------------------------------------------------------------------------------
 		
 		
-process(wclock) is begin
+process(wclock ,wr1,wr2,wr3,wr4) is begin
 	if (wr1 = '1') then
 		CASE t1 is
 			when "00" =>
@@ -184,7 +184,7 @@ process(wclock) is begin
 						else
 							wq_21<='0';
 						end if;
-				wq_21<='0';
+				wq_11<='0';
 				wq_31<='0';
 				wq_41<='0';
 			when "10" =>
@@ -232,7 +232,7 @@ process(wclock) is begin
 						else
 							wq_22<='0';
 						end if;
-				wq_22<='0';
+				wq_12<='0';
 				wq_32<='0';
 				wq_42<='0';
 			when "10" =>
@@ -280,7 +280,7 @@ if (wr3 = '1') then
 						else
 							wq_23<='0';
 						end if;
-				wq_23<='0';
+				wq_13<='0';
 				wq_33<='0';
 				wq_43<='0';
 			when "10" =>
@@ -328,7 +328,7 @@ if (wr4 = '1') then
 						else
 								wq_24<='0';
 						end if;
-				wq_24<='0';
+				wq_14<='0';
 				wq_34<='0';
 				wq_44<='0';
 			when "10" =>
@@ -581,9 +581,9 @@ end process rs;
 		scheduler4:R_R port map(rclock,Odtof_41,Odtof_42,Odtof_43,Odtof_44,out4);
 
 -------------------------------------------------------------------------------------------
-		datao1 <=out1 ;
-		datao2 <=out2 ;
-		datao3 <=out3 ;
-		datao4 <=out4 ;
+		datao1 <= out1 ;
+		datao2 <= out2 ;
+		datao3 <= out3 ;
+		datao4 <= out4 ;
 
 end Behavioral;

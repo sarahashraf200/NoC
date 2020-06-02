@@ -44,10 +44,10 @@ ARCHITECTURE behavior OF dual_port_memory_tb IS
          CLKA : IN  std_logic;
          WEA : IN  std_logic;
 			 REA : IN  std_logic;
-         ADDRA : IN  std_logic_vector(2 downto 0);
+         ADDRA : IN  std_logic_vector(3 downto 0);
          d_in : IN  std_logic_vector(7 downto 0);
          CLKB : IN  std_logic;
-         ADDRB : IN  std_logic_vector(2 downto 0);
+         ADDRB : IN  std_logic_vector(3 downto 0);
          d_out : OUT  std_logic_vector(7 downto 0)
         );
     END COMPONENT;
@@ -57,10 +57,10 @@ ARCHITECTURE behavior OF dual_port_memory_tb IS
 	signal REA : std_logic := '0';
    signal CLKA : std_logic := '0';
    signal WEA : std_logic := '0';
-   signal ADDRA : std_logic_vector(2 downto 0) := (others => '0');
+   signal ADDRA : std_logic_vector(3 downto 0) := (others => '0');
    signal d_in : std_logic_vector(7 downto 0) := (others => '0');
    signal CLKB : std_logic := '0';
-   signal ADDRB : std_logic_vector(2 downto 0) := (others => '0');
+   signal ADDRB : std_logic_vector(3 downto 0) := (others => '0');
 
  	--Outputs
    signal d_out : std_logic_vector(7 downto 0);
@@ -94,7 +94,7 @@ BEGIN
      WEA <= '1';
     write_loop : for i in 0 to 7 loop
       CLKA   <= '0';
-      ADDRA  <= std_logic_vector(to_unsigned(i, 3));
+      ADDRA  <= std_logic_vector(to_unsigned(i, 4));
       d_in   <= c_TEST_DATA(i);
       wait for CLKA_period / 2;
       CLKA   <= '1';
@@ -108,7 +108,7 @@ BEGIN
     REA <= '1';
     read_loop : for i in 0 to 7 loop
       CLKB   <= '0';
-      ADDRB  <= std_logic_vector(to_unsigned(i, 3));
+      ADDRB  <= std_logic_vector(to_unsigned(i, 4));
       wait for CLKB_period / 2;
       CLKB <= '1';
       wait for CLKB_period / 2;

@@ -8,16 +8,16 @@ ARCHITECTURE behav_tb  OF module2_tb IS
 Component module2 is
 port(
 d_in: IN std_logic_vector(7 downto 0);
-sel: IN bit_vector(1 downto 0);
-en: IN bit ; 
+sel: IN std_logic_vector(1 downto 0);
+en: IN std_logic ; 
 d_out1,d_out2,d_out3,d_out4: OUT std_logic_vector(7 downto 0)
 
 );
 end component module2;
 
 signal d_in: std_logic_vector(7 downto 0);
-signal sel:  bit_vector(1 downto 0);
-signal en:  bit ; 
+signal sel:  std_logic_vector(1 downto 0);
+signal en:  std_logic ; 
 signal d_out1,d_out2,d_out3,d_out4: std_logic_vector(7 downto 0);
 
 Begin 
