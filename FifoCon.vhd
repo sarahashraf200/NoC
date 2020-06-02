@@ -71,7 +71,7 @@ wri_ptr : gray_to_binary
                       --DeQueue data
                       rst_empt <= '1';
                       write_valid <= '1';
-		      set_full <= '0';
+							 set_full <= '0';
 
                   end if;
                   

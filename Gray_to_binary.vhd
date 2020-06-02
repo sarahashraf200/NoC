@@ -1,22 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: 
 -- Engineer: 
--- 
--- Create Date:    19:50:58 05/11/2020 
--- Design Name: 
--- Module Name:    Gray_to_binary - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.std_logic_1164.all;

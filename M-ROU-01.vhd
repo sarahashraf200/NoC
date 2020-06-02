@@ -8,7 +8,6 @@ Clock, Clock_En,Reset : IN std_logic;
 Data_out: OUT std_logic_vector(7 downto 0)
  );
 END ENTITY module1; 
-
 ARCHITECTURE behav  OF module1 IS
 BEGIN
 proc1: PROCESS(Clock,Reset)
