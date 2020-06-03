@@ -137,67 +137,91 @@ BEGIN
 		datai3<="00100011";
 
 		datai4<="00110100";
-		wr1<='1';
-		wr2<='1';
-		wr3<='1';
-		wr4<='1';
-			
-		wait for 10 ns;
 		
-
+		wr1 <= '1';
+		wr2 <= '1';
+		wr3 <= '1';
+		wr4 <= '1';
+			
+	
+		wait for 40 ns;
 		datai1<="01000001";
+		
 		datai2<="01010010";
+
 		datai3<="01100011";
+
 		datai4<="01110100";
+		wait for 30 ns;
+		assert datao1 = "00000001" report "test case 1 failed" severity warning;
 		wait for 10 ns;
 		datai1<="10000001";
 		datai2<="10010010";
 		datai3<="10100011";
 		datai4<="10110100";
+		assert datao1 = "00010010" report "test case 12 failed" severity warning;
+		
 		wait for 10 ns;
+		assert datao1 = "00100011" report "test case 13 failed" severity warning;
+	
+		wait for 10 ns;
+		assert datao1 = "00110100" report "test case 14 failed" severity warning;
+	
+		wait for 10 ns;
+		
+		assert datao1 = "00000001" report "test case n51 failed" severity warning; -- no need just checking
+		assert datao2 = "01000001" report "test case 21 failed" severity warning;
+	
+		wait for 10 ns;
+		
 		datai1<="11000001";
 		datai2<="11010010";
 		datai3<="11100011";
 		datai4<="11110100";
-		wait for 10 ns;
+		
+		
+		assert datao1 = "00010010" report "test case 61 failed" severity warning; -- no need just checking
+		assert datao2 = "01010010" report "test case 22 failed" severity warning;
+		
+		wait for 10 ns ;
+	
+		assert datao2 = "01100011" report "test case 23 failed" severity warning;
+		
+		
+		assert datao1 = "00100011" report "test case 71 failed" severity warning; -- no need just checking
+
+		wait for 10 ns ;
+		assert datao2 = "01110100" report "test case 24 failed" severity warning;
+		wait for 10 ns ;
+		assert datao3 = "10000001" report "test case 31 failed" severity warning;
+		wait for 10 ns ;
+		assert datao3 = "10010010" report "test case 32 failed" severity warning;
+		wait for 10 ns ;
+		assert datao3 = "10100011" report "test case 33 failed" severity warning;
+		wait for 10 ns ;
+		assert datao3 = "10110100" report "test case 34 failed" severity warning;
+		wait for 10 ns ;
+		
+		assert datao4 = "11000001" report "test case 41 failed" severity warning;
+		wait for 10 ns ;
+		assert datao4 = "11010010" report "test case 42 failed" severity warning;
+		wait for 10 ns ;
+		assert datao4 = "11100011" report "test case 43 failed" severity warning;
+		wait for 10 ns ;
+		assert datao4 = "11110100" report "test case 44 failed" severity warning;
+
+
+		
 		wr1<='0';
 		wr2<='0';
 		wr3<='0';
 		wr4<='0';
-		wait for 30 ns;
-		assert datao1 = "00000001" report "test case 1 failed" severity warning;
-		wait for 10 ns;
-		assert datao1 = "00010010" report "test case 21 failed" severity warning;
-		assert datao2 = "01010010" report "test case 22 failed" severity warning;
-		wait for 10 ns;
-		assert datao1 = "00100011" report "test case 31 failed" severity warning;
-		assert datao2 = "01100011" report "test case 32 failed" severity warning;
-		assert datao3 = "10100011" report "test case 33 failed" severity warning;
-		wait for 10 ns;
-		assert datao1 = "00110100" report "test case 41 failed" severity warning;
-		assert datao2 = "01110100" report "test case 42 failed" severity warning;
-		assert datao3 = "10110100" report "test case 43 failed" severity warning;
-		assert datao4 = "11110100" report "test case 44 failed" severity warning;
-		wait for 10 ns;
-		assert datao1 = "00000001" report "test case 51 failed" severity warning;
-		assert datao2 = "01000001" report "test case 52 failed" severity warning;
-		assert datao3 = "10000001" report "test case 53 failed" severity warning;
-		assert datao4 = "11000001" report "test case 54 failed" severity warning;
-		wait for 10 ns;
-		assert datao1 = "00010010" report "test case 61 failed" severity warning;
-		assert datao2 = "01010010" report "test case 62 failed" severity warning;
-		assert datao3 = "10010010" report "test case 63 failed" severity warning;
-		assert datao4 = "11010010" report "test case 64 failed" severity warning;
-		wait for 10 ns;
-		assert datao1 = "00100011" report "test case 71 failed" severity warning;
-		assert datao2 = "01100011" report "test case 72 failed" severity warning;
-		assert datao3 = "10100011" report "test case 73 failed" severity warning;
-		assert datao4 = "11100011" report "test case 74 failed" severity warning;
-		wait for 10 ns;
-		assert datao1 = "00110100" report "test case 81 failed" severity warning;
-		assert datao2 = "01110100" report "test case 82 failed" severity warning;
-		assert datao3 = "10110100" report "test case 83 failed" severity warning;
-		assert datao4 = "11110100" report "test case 84 failed" severity warning;
+		
+		
+		report "test cases Succeded" severity note;
+		
+
+	
 
 	
 		
