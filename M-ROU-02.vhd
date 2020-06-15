@@ -20,29 +20,29 @@ IF en='1' then
 	CASE sel is
 	when "00" =>
 	d_out1 <= d_in;
-	d_out2 <= "UUUUUUUU";
-	d_out3 <= "UUUUUUUU";
-	d_out4 <= "UUUUUUUU";
+	d_out2 <= "00000000";
+	d_out3 <= "00000000";
+	d_out4 <= "00000000";
 	when "01" =>
-	d_out1 <= "UUUUUUUU";
+	d_out1 <= "00000000";
 	d_out2 <= d_in;
-	d_out3 <= "UUUUUUUU";
-	d_out4 <= "UUUUUUUU";
+	d_out3 <= "00000000";
+	d_out4 <= "00000000";
 	when "10" =>
-	d_out1 <= "UUUUUUUU";
-	d_out2 <= "UUUUUUUU";
+	d_out1 <= "00000000";
+	d_out2 <= "00000000";
 	d_out3 <= d_in;
-	d_out4 <= "UUUUUUUU";
+	d_out4 <= "00000000";
 	when "11" =>
-	d_out1 <= "UUUUUUUU";
-	d_out2 <= "UUUUUUUU";
-	d_out3 <= "UUUUUUUU";
+	d_out1 <= "00000000";
+	d_out2 <= "00000000";
+	d_out3 <= "00000000";
 	d_out4 <= d_in;
 	when others =>
-	d_out1 <= "UUUUUUUU";
-	d_out2 <= "UUUUUUUU";
-	d_out3 <= "UUUUUUUU";
-	d_out4 <= "UUUUUUUU";
+	d_out1 <= "00000000";
+	d_out2 <= "00000000";
+	d_out3 <= "00000000";
+	d_out4 <= "00000000";
 	END CASE;
 
 END IF;
